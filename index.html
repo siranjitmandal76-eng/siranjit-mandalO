@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRANJIT MANDAL | Trading Information</title>
+
+<!-- TradingView Script -->
+<script src="https://s3.tradingview.com/tv.js"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #222;
+}
+header {
+  background: linear-gradient(135deg, #0f4c81, #1e88e5);
+  color: white;
+  text-align: center;
+  padding: 40px 15px;
+}
+header img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+}
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 15px;
+}
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #1e88e5;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.btn:hover {
+  background: #0f4c81;
+}
+footer {
+  background: #0f4c81;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="siranjit-photo.jpg.png" alt="Siranjit Mandal">
+  <h1>SIRANJIT MANDAL</h1>
+  <p>Your Source for Trading Insights & Market Knowledge</p>
+</header>
+
+<section>
+<h2>📊 Trading Information</h2>
+<div class="grid">
+  <div class="card">📈 Market Analysis (Daily)</div>
+  <div class="card">♟️ Trading Strategies</div>
+  <div class="card">📉 RSI, EMA, VWAP Indicators</div>
+  <div class="card">📊 Stocks • Futures • Options</div>
+</div>
+</section>
+
+<section>
+<h2>📡 Live TradingView Chart</h2>
+<div id="tvchart" style="height:500px;"></div>
+<script>
+new TradingView.widget({
+  container_id: "tvchart",
+  width: "100%",
+  height: 500,
+  symbol: "NSE:NIFTY",
+  interval: "15",
+  timezone: "Asia/Kolkata",
+  theme: "light",
+  style: "1",
+  locale: "en",
+  toolbar_bg: "#f1f3f6"
+});
+</script>
+</section>
+
+<section>
+<h2>💰 SIP Calculator</h2>
+<div class="card">
+  <input type="number" id="amount" placeholder="Monthly Investment (₹)">
+  <input type="number" id="years" placeholder="Years">
+  <input type="number" id="rate" placeholder="Expected Return (%)">
+  <button class="btn" onclick="calcSIP()">Calculate</button>
+  <h3 id="sipResult"></h3>
+</div>
+
+<script>
+function calcSIP(){
+  let p = document.getElementById("amount").value;
+  let r = document.getElementById("rate").value/100/12;
+  let n = document.getElementById("years").value*12;
+  let fv = p*((Math.pow(1+r,n)-1)/r)*(1+r);
+  document.getElementById("sipResult").innerHTML =
+   "Estimated Value: ₹" + Math.round(fv);
+}
+</script>
+</section>
+
+<section>
+<h2>📄 Trading Plan PDF</h2>
+<div style="text-align:center">
+  <a href="trading-plan.pdf" class="btn" download>Download Trading Plan</a>
+</div>
+</section>
+
+<section>
+<h2>📞 Contact Me</h2>
+<div class="card" style="text-align:center">
+  <h3>Call: 7896634494</h3>
+  <p>Available for trading guidance & support</p>
+</div>
+</section>
+
+<a class="whatsapp" 
+href="https://wa.me/917896634494" target="_blank">
+💬 WhatsApp
+</a>
+
+<footer>
+  © 2025 SIRANJIT MANDAL | Trading Education Only
+</footer>
+
+</body>
+</html>
